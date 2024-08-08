@@ -66,7 +66,7 @@ public class RadioTest {
     }
 
     @Test
-    public void backToValidStation(){
+    public void backToValidStation() {
         Radio station = new Radio();
         station.setStation(0);
 
@@ -131,6 +131,42 @@ public class RadioTest {
         volume.decreaseVolume();
 
         int expected = 76;
+        int actual = volume.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void volumeMax() {
+        Radio volume = new Radio();
+        volume.setVolume(100);
+
+        volume.increaseVolume();
+        int expected = 100;
+        int actual = volume.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void volumeMin() {
+        Radio volume = new Radio();
+        volume.setVolume(0);
+
+        volume.decreaseVolume();
+        int expected = 0;
+        int actual = volume.getVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void negativeVolume() {
+        Radio volume = new Radio();
+        volume.setVolume(-1);
+
+        volume.decreaseVolume();
+        int expected = 0;
         int actual = volume.getVolume();
 
         Assertions.assertEquals(expected, actual);
