@@ -15,6 +15,7 @@ public class RadioTest {
     @Test
     public void impossibleRadioStation() {
         Radio station = new Radio(10);
+
         station.setStation(8);
 
         Assertions.assertEquals(8, station.getStation());
@@ -32,11 +33,12 @@ public class RadioTest {
     @Test
     public void nextStation() {
         Radio station = new Radio(10);
-        station.setStation(9);
+
+        station.setStation(6);
 
         station.nextStation();
 
-        Assertions.assertEquals(0, station.getStation());
+        Assertions.assertEquals(7, station.getStation());
     }
 
     @Test
